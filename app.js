@@ -18,6 +18,8 @@ var startApp = function() {
 
     // Redirect to environment-appropriate domain, if necessary
     app.all('*', function(req, res, next) {
+        next('route');
+        /*
         if (config.app_host_port != req.headers.host) {
             var redirectUrl = 'http://' + config.app_host_port + req.url;
             console.log("Redirecting to " + redirectUrl + "...");
@@ -25,6 +27,7 @@ var startApp = function() {
         } else {
             next('route');
         }
+        */
     });
 
     app.use(express.static(__dirname + '/public'));
